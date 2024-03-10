@@ -102,3 +102,4 @@ C:\Users\HP\source\repos\MgqsPollApp\obj\Debug\net8.0\refint\MgqsPollApp.dll
 C:\Users\HP\source\repos\MgqsPollApp\obj\Debug\net8.0\MgqsPollApp.pdb
 C:\Users\HP\source\repos\MgqsPollApp\obj\Debug\net8.0\MgqsPollApp.genruntimeconfig.cache
 C:\Users\HP\source\repos\MgqsPollApp\obj\Debug\net8.0\ref\MgqsPollApp.dll
+C:\Users\HP\source\repos\MgqsPollApp\obj\Debug\net8.0\MgqsPollApp.sourcelink.json

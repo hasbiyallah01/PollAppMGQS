@@ -48,6 +48,11 @@ namespace MgqsPollApp.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     DisplayName = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    PhoneNumber = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ImageUrl = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Gender = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
@@ -138,6 +143,12 @@ namespace MgqsPollApp.Migrations
                 {
                     table.PrimaryKey("PK_Polls", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Polls_ChatRooms_ChatRoomId",
+                        column: x => x.ChatRoomId,
+                        principalTable: "ChatRooms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Polls_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
@@ -178,7 +189,6 @@ namespace MgqsPollApp.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     PollOptionId = table.Column<int>(type: "int", nullable: false),
-                    PollId = table.Column<int>(type: "int", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
@@ -191,11 +201,6 @@ namespace MgqsPollApp.Migrations
                         principalTable: "PollOptions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserPollSelection_Polls_PollId",
-                        column: x => x.PollId,
-                        principalTable: "Polls",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_UserPollSelection_Users_UserId",
                         column: x => x.UserId,
@@ -231,14 +236,14 @@ namespace MgqsPollApp.Migrations
                 column: "PollId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Polls_ChatRoomId",
+                table: "Polls",
+                column: "ChatRoomId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Polls_UserId",
                 table: "Polls",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserPollSelection_PollId",
-                table: "UserPollSelection",
-                column: "PollId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserPollSelection_PollOptionId",
@@ -264,13 +269,13 @@ namespace MgqsPollApp.Migrations
                 name: "UserPollSelection");
 
             migrationBuilder.DropTable(
-                name: "ChatRooms");
-
-            migrationBuilder.DropTable(
                 name: "PollOptions");
 
             migrationBuilder.DropTable(
                 name: "Polls");
+
+            migrationBuilder.DropTable(
+                name: "ChatRooms");
 
             migrationBuilder.DropTable(
                 name: "Users");

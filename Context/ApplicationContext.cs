@@ -16,7 +16,7 @@ namespace MgqsPollApp.Context
         public DbSet<Poll> Polls { get; set; }
         public DbSet<Message> Message { get; set; }
         public DbSet<ChatRoomUsers> ChatRoomUsers { get; set; }
-        public DbSet<UserPollSelection> UserPollSelection { get; set; }
+        public DbSet<UserPollOption> UserPollSelection { get; set; }
 
 
             protected override void OnModelCreating(ModelBuilder modelBuilder)
