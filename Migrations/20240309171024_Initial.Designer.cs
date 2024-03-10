@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MgqsPollApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240304120626_Initial")]
+    [Migration("20240309171024_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -150,6 +150,8 @@ namespace MgqsPollApp.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ChatRoomId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Polls");
@@ -205,10 +207,21 @@ namespace MgqsPollApp.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -221,7 +234,7 @@ namespace MgqsPollApp.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MgqsPollApp.Models.Entities.UserPollSelection", b =>
+            modelBuilder.Entity("MgqsPollApp.Models.Entities.UserPollOption", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -235,9 +248,6 @@ namespace MgqsPollApp.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("PollId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PollOptionId")
                         .HasColumnType("int");
 
@@ -245,8 +255,6 @@ namespace MgqsPollApp.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PollId");
 
                     b.HasIndex("PollOptionId");
 
@@ -295,11 +303,19 @@ namespace MgqsPollApp.Migrations
 
             modelBuilder.Entity("MgqsPollApp.Models.Entities.Poll", b =>
                 {
+                    b.HasOne("MgqsPollApp.Models.Entities.ChatRoom", "ChatRoom")
+                        .WithMany()
+                        .HasForeignKey("ChatRoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MgqsPollApp.Models.Entities.User", "User")
                         .WithMany("Polls")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ChatRoom");
 
                     b.Navigation("User");
                 });
@@ -311,20 +327,16 @@ namespace MgqsPollApp.Migrations
                         .HasForeignKey("PollId");
                 });
 
-            modelBuilder.Entity("MgqsPollApp.Models.Entities.UserPollSelection", b =>
+            modelBuilder.Entity("MgqsPollApp.Models.Entities.UserPollOption", b =>
                 {
-                    b.HasOne("MgqsPollApp.Models.Entities.Poll", null)
-                        .WithMany("UserSelections")
-                        .HasForeignKey("PollId");
-
                     b.HasOne("MgqsPollApp.Models.Entities.PollOption", "PollOption")
-                        .WithMany()
+                        .WithMany("UserSelections")
                         .HasForeignKey("PollOptionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MgqsPollApp.Models.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("UserSelections")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -344,7 +356,10 @@ namespace MgqsPollApp.Migrations
             modelBuilder.Entity("MgqsPollApp.Models.Entities.Poll", b =>
                 {
                     b.Navigation("Options");
+                });
 
+            modelBuilder.Entity("MgqsPollApp.Models.Entities.PollOption", b =>
+                {
                     b.Navigation("UserSelections");
                 });
 
@@ -355,6 +370,8 @@ namespace MgqsPollApp.Migrations
                     b.Navigation("Messages");
 
                     b.Navigation("Polls");
+
+                    b.Navigation("UserSelections");
                 });
 #pragma warning restore 612, 618
         }

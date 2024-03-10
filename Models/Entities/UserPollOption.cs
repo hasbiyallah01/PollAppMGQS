@@ -1,6 +1,6 @@
 ﻿namespace MgqsPollApp.Models.Entities
 {
-    public class UserPollSelection : BaseEntity
+    public class UserPollOption : BaseEntity
     {
         public int UserId { get; set; }
         public int PollOptionId { get; set; }
