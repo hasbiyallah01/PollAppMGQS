@@ -1,24 +1,29 @@
 ﻿using MgqsPollApp.Context;
 using MgqsPollApp.Models.Entities;
 using MgqsPollApp.Repositories.Interfaces;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.EntityFrameworkCore;
 
 namespace MgqsPollApp.Repositories.Implementations
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity, new()
     {
-        public Task<T> Create(T entity)
+        protected ApplicationContext _context;
+        public async Task<T> Create(T entity)
         {
-            throw new NotImplementedException();
+            await _context.Set<T>().AddAsync(entity);
+            return entity;
         }
 
-        public Task<int> Save()
+        public async Task<int> Save()
         {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync();
         }
 
         public T Update(T entity)
         {
-            throw new NotImplementedException();
+            _context.Update(entity);
+            return entity;
         }
     }
 }
