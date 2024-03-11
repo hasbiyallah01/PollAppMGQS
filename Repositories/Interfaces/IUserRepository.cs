@@ -1,5 +1,6 @@
 ﻿using MgqsPollApp.Models.Entities;
 using System.Linq.Expressions;
+using System.Net;
 
 namespace MgqsPollApp.Repositories.Interfaces
 {
