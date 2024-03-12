@@ -21,6 +21,8 @@ namespace MgqsPollApp.Repositories.Implementations
                            .Include(a => a.Messages)
                            .Include(a => a.ChatRoomUsers)
                            .ThenInclude(a => a.User)
+                           .ThenInclude(a => a.Polls)
+                           .ThenInclude(a => a.Options)
                            .SingleOrDefaultAsync(a => a.Id == id);
                            return chatRoom;
         }
@@ -31,6 +33,8 @@ namespace MgqsPollApp.Repositories.Implementations
                            .Include(a => a.Messages)
                            .Include(a => a.ChatRoomUsers)
                            .ThenInclude(a => a.User)
+                           .ThenInclude(a => a.Polls)
+                           .ThenInclude(a => a.Options)
                            .SingleOrDefaultAsync(predicate);
                            return chatRoom;
         }
@@ -41,6 +45,8 @@ namespace MgqsPollApp.Repositories.Implementations
                             .Include(a => a.Messages)
                             .Include(a => a.ChatRoomUsers)
                             .ThenInclude(a => a.User)
+                            .ThenInclude(a => a.Polls)
+                            .ThenInclude(a => a.Options)
                             .ToListAsync();
                             return chatRooms;
         }
@@ -51,6 +57,8 @@ namespace MgqsPollApp.Repositories.Implementations
                             .Include(a => a.Messages)
                             .Include(a => a.ChatRoomUsers)
                             .ThenInclude(a => a.User)
+                            .ThenInclude(a => a.Polls)
+                            .ThenInclude(a => a.Options)
                             .Where(a => ids.Contains(a.Id)).ToListAsync();
                             return chatRooms;
         }
@@ -61,6 +69,8 @@ namespace MgqsPollApp.Repositories.Implementations
                             .Include(a => a.Messages)
                             .Include(a => a.ChatRoomUsers)
                             .ThenInclude(a => a.User)
+                            .ThenInclude(a => a.Polls)
+                            .ThenInclude(a => a.Options)
                             .Where(predicate).ToListAsync();
                             return chatRooms;
         }

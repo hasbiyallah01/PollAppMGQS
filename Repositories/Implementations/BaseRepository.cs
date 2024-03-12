@@ -11,13 +11,15 @@ namespace MgqsPollApp.Repositories.Implementations
         protected ApplicationContext _context;
         public async Task<T> Create(T entity)
         {
-            await _context.Set<T>().AddAsync(entity);
+            await _context.Set<T>()
+                .AddAsync(entity);
             return entity;
         }
 
         public async Task<int> Save()
         {
-            return await _context.SaveChangesAsync();
+            return await _context
+                .SaveChangesAsync();
         }
 
         public T Update(T entity)
