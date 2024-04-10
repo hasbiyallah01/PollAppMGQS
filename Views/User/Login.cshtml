@@ -1,0 +1,63 @@
+﻿@* @model FoodFileMgt.Dtos.LoginUserRequestModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h4>Login</h4>
+<form asp-action="Login" method="post">
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Login" />
+    </div>
+</form>
+
+ *@
+
+
+ @model MgqsPollApp.Dtos.CreateUserRequestModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    .error-input {
+        border: 1px solid red;
+        font-size: small;
+    }
+
+    .error-message {
+        color: red;
+        font-size: small;
+        display: block;
+    }
+</style>
+
+<h4>Login</h4>
+<form asp-action="Login" method="post">
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="error-input" />
+        <span asp-validation-for="Email" class="error-message"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="error-input" />
+        <span asp-validation-for="Password" class="error-message"></span>
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Login" />
+    </div>
+</form>
