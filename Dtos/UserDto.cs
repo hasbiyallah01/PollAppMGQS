@@ -1,7 +1,7 @@
 using MgqsPollApp.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace PollAppMGQS.Dtos
+namespace MgqsPollApp.Dtos
 {
     public class UserDto
     {

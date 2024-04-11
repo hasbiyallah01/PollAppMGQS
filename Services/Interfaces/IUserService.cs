@@ -1,5 +1,4 @@
 ﻿using MgqsPollApp.Dtos;
-using PollAppMGQS.Dtos;
 
 namespace MgqsPollApp.Services.Interfaces
 {
