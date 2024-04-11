@@ -26,8 +26,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -36,7 +40,7 @@
               "RelativeDocumentMoniker": "Views\\User\\Login.cshtml",
               "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\PollAppMGQS\\Views\\User\\Login.cshtml",
               "RelativeToolTip": "Views\\User\\Login.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAAfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-10T12:47:08.589Z",
               "EditorCaption": ""
@@ -51,8 +55,7 @@
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AQIAADEAAAAAAAAAAAAkwA8AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T12:42:26.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-10T12:42:26.195Z"
             },
             {
               "$type": "Document",
@@ -64,8 +67,7 @@
               "RelativeToolTip": "Services\\Implementations\\UserService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T12:42:23.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-10T12:42:23.986Z"
             },
             {
               "$type": "Document",
@@ -77,8 +79,7 @@
               "RelativeToolTip": "Dtos\\UserDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T12:42:19.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-10T12:42:19.752Z"
             }
           ]
         }
