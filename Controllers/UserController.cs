@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using MgqsPollApp.Services.Interfaces;
-using PollAppMGQS.Dtos;
+using MgqsPollApp.Dtos;
 namespace MgqsPollApp.Controllers
 {
     public class UserController : Controller

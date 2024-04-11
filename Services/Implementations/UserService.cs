@@ -1,7 +1,6 @@
 ﻿using MgqsPollApp.Dtos;
 using MgqsPollApp.Repositories.Interfaces;
 using MgqsPollApp.Services.Interfaces;
-using PollAppMGQS.Dtos;
 
 namespace MgqsPollApp.Services.Implementations
 {
@@ -40,7 +39,7 @@ namespace MgqsPollApp.Services.Implementations
                          ImageUrl = model.ImageUrl,
                          PhoneNumber = model.PhoneNumber,
                          LastName = model.LastName,
-                         DisplayName = model.DisplayName,
+                         DisplayName = model.FirstName + " " + model.LastName,
                     }
 
                 };
