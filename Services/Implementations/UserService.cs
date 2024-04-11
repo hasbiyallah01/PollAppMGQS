@@ -39,7 +39,7 @@ namespace MgqsPollApp.Services.Implementations
                          ImageUrl = model.ImageUrl,
                          PhoneNumber = model.PhoneNumber,
                          LastName = model.LastName,
-                         DisplayName = model.FirstName + " " + model.LastName,
+                         DisplayName = model.DisplayName,
                     }
 
                 };
