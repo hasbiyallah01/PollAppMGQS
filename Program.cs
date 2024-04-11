@@ -1,10 +1,13 @@
 using MgqsPollApp.Context;
+using MgqsPollApp.Repositories.Implementations;
+using MgqsPollApp.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 var connectionString = builder.Configuration.GetConnectionString("PollString");
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 

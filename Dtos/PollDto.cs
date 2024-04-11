@@ -7,4 +7,10 @@ namespace MgqsPollApp.Dtos
         public DateTime Deadline { get; set; }
         public string Question { get; set; } 
     }
+
+    public class CreatePollRequestModel
+    {
+        public DateTime Deadline { get; set; }
+        public string Question { get; set; }
+    }
 }
