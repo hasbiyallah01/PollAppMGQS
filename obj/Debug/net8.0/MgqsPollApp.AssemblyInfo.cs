@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MgqsPollApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f297043479d5eaca1bad7c6736d16b2fb8c7bcf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+425764af133dce5c2016f2a708ae861f18e4aa85")]
 [assembly: System.Reflection.AssemblyProductAttribute("MgqsPollApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MgqsPollApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
