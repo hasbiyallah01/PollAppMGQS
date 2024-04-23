@@ -6,11 +6,19 @@ using System.Linq.Expressions;
 
 namespace MgqsPollApp.Repositories.Implementations
 {
+
+    
     public class MessageRepository: BaseRepository<Message>, IMessageRepository
     {
         public MessageRepository(ApplicationContext context)
         {
             _context = context;
+        }
+
+        public async Task CreateAsync(Message message)
+        {
+            await _context.Set<Message>().AddAsync(message);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<Message> Get(int id)

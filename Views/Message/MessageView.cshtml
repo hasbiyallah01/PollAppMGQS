@@ -1,0 +1,66 @@
+@*@using MgqsPollApp.Dtos.MessageDto
+
+
+@model List<MessageDto>
+@model MgqsPollApp.Dtos.CreateMessageRequestModel
+    @{
+    ViewData["Title"] = "Message View";
+    }
+
+    <style>
+        .table-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+            .table-container table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .table-container th,
+            .table-container td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ccc;
+            }
+
+        .no-messages {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+
+    <h1>Message View</h1>
+
+    <div class="table-container">
+        @if (Model.Count == 0)
+    {
+        <p class="no-messages">No messages found.</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Message ID</th>
+                    <th>Message Content</th>
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in Model)
+                {
+                <tr>
+                    <td>@message.Id</td>
+                    <td>@message.Content</td>
+                    <td>@message.CreatedDate</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    </div>
+*@

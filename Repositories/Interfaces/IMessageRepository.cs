@@ -5,6 +5,7 @@ namespace MgqsPollApp.Repositories.Interfaces
 {
     public interface IMessageRepository :IBaseRepository<Message>
     {
+        Task CreateAsync(Message message);
         Task<Message> Get(int id);
         Task<Message> Get(Expression<Func<Message, bool>> predicate);
         Task<ICollection<Message>> GetSelected(List<int> ids);
@@ -12,3 +13,4 @@ namespace MgqsPollApp.Repositories.Interfaces
         Task<ICollection<Message>> GetAll();
     }
 }
+

@@ -2,7 +2,7 @@
 
 namespace MgqsPollApp.Services.Interfaces
 {
-    public interface MessageService
+    public interface IMessageService
     {
         Task<BaseResponse<MessageDto>> CreateCategoryAsync(CreateMessageRequestModel model);
         Task<BaseResponse<ICollection<MessageDto>>> GetCategoriesAsync();
